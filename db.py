@@ -63,7 +63,7 @@ def commands():
             ],
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
-            "command": "wmctrl -l |grep -v wmctrl | grep -v x-get-winid | grep '#1#' | cut -d ' ' -f1",
+            "command": "wmctrl -lx |grep -v wmctrl | grep -v x-get-winid | grep '#1#' | cut -d ' ' -f1",
             "tags": ["x11", "windows", "wmctrl"]
         },
         {
