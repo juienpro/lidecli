@@ -54,16 +54,20 @@ def print_commands(args):
 
 def read_temporary_variable(index):
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    path = os.path.dirname(__file__)
+    config_file = "{}/config.ini".format(path)
+    config.read(config_file)
     key = 'TMP_RESULT_'+str(index)
     return config['TMP_STORAGE'][key]
 
 def set_temporary_variable(index, value):
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    path = os.path.dirname(__file__)
+    config_file = "{}/config.ini".format(path)
+    config.read(config_file)
     key = 'TMP_RESULT_'+str(index)
     config['TMP_STORAGE'][key] = value
-    with open('config.ini','w') as configfile:
+    with open(config_file, 'w') as configfile:
         config.write(configfile)
 
 def exec_command(args):
