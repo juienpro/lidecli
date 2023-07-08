@@ -44,7 +44,7 @@ def commands():
             "description": "Get Windows list with wmctrl",
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
-            "command": "wmctrl -l",
+            "command": "wmctrl -lx",
             "tags": ["x11", "windows", "wmctrl"]
         },
         {
