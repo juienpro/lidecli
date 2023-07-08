@@ -233,7 +233,7 @@ def commands():
             "forwarded_arguments": [
                 { "name": "WinName", "description": "The substring to match the Window Name"}
             ],
-            "command": "wmctrl -a",
+            "command": "wmctrl -x -a",
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "tags": ["x11", "windows", "wmctrl" ]
