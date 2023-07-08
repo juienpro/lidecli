@@ -239,6 +239,18 @@ def commands():
             "tags": ["x11", "windows", "wmctrl" ]
         },
         {
+           "name": "x-focus-name-nth",
+            "description": "Give focus to the bth Window (by name)",
+            "forwarded_arguments": [
+                { "name": "WinName", "description": "The substring to match the Window Name"},
+                { "name": "Nth", "description": "The index of the window"}
+            ],
+            "command": "wmctrl -lx |grep -v wmctrl | grep -v x-get-winid | grep '#1#' | cut -d ' ' -f1 | head -#2# | tail -1 | xargs wmctrl -i -a", 
+            "versions_working": [("x11", "all")],
+            "versions_not_working": [],
+            "tags": ["x11", "windows", "wmctrl" ]
+        },
+        {
            "name": "x-current-focus-id",
             "description": "Get the WinID having the focus",
             "command": "xprop -root _NET_ACTIVE_WINDOW |cut -d ' ' -f5",
