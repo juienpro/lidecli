@@ -9,7 +9,7 @@ import configparser
 import callbacks
 import db
 
-
+version = "1.0.2"
 verbose = False
 outer_args = None
 inner_args = None
