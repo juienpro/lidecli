@@ -75,7 +75,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_maximized"
             },
@@ -90,7 +90,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_maximized_horizontal"
             },
@@ -105,7 +105,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_maximized_vertical"
             },
@@ -120,7 +120,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_minimized"
             },
@@ -135,7 +135,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_modal"
             },
@@ -150,7 +150,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_sticky"
             },
@@ -165,7 +165,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_shaded"
             },
@@ -180,7 +180,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_fullscreen"
             },
@@ -195,7 +195,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_above"
             },
@@ -210,7 +210,7 @@ def commands():
             "versions_working": [("x11", "all")],
             "versions_not_working": [],
             "command": "xprop -id #1#",
-            "callback": {
+            "callback_parser": {
                 "function": "xprop_parser",
                 "output_key": "win_below"
             },

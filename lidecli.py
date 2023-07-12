@@ -6,7 +6,7 @@ import sys
 import json
 import os
 import configparser
-import callbacks
+import parsing_callbacks
 import db
 
 version = "1.0.2"
@@ -112,10 +112,11 @@ def exec_command(args):
         print("Command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
         return
     ret = ret.decode('utf-8')
-    if "callback" in command:
-        function = getattr(callbacks, command["callback"]["function"])
+    if "callback_parser" in command:
+        function = getattr(parsing_callbacks, command["callback_parser"]["function"])
         ret = function(ret)
-        print(ret["win_maximized"], end='')
+        ret = ret[command['callback_parser']['output_key']]
+        # print(ret["win_maximized"], end='')
     else:
         print(ret, end='')
     if (args.store):
