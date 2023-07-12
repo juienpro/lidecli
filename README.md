@@ -40,6 +40,17 @@ The code is a Python 3 script. You just need to clone this repository. Some exam
 ./lidecli.py x-win-name-maximize Firefox
 ```
 
+**Focus on the nth Window of a specific program**
+```
+./lidecli.py x-focus-name-nth kitty 1
+./lidecli.py x-focus-name-nth kitty 2 
+```
+**Move a window to screen 3 (eg the third monitor)**
+```
+./lidecli.py x-move-win-name-screen terminal 3
+```
+
+
 ## Command currently implemented
 
 As I am currently using KDE Plasma (very great except its command-line API) on X, the current database contains around 170 ready-to-use commands, mainly using **KDE API with qdbus**, and **wmctrl**, **xprop** or **xwininfo**.
@@ -151,7 +162,7 @@ If you launch `./lidecli.py x-get-winid Firefox`, then the command executed will
 
 If you just to put the argument(s) at the end of the command line, it's not mandatory to add `#1#`. By default, all needed arguments mentionned will be forwarded to the end of the command launched. 
 
-### Custom Python callbacks
+### Custom Python parsing callbacks
 
 Lidecli supports custom Python callbacks, mainly to parse the output of a command.
 
@@ -166,7 +177,7 @@ Let's take the example below:
     "versions_working": [("x11", "all")],
     "versions_not_working": [],
     "command": "xprop -id",
-    "callback": {
+    "callback_parser": {
       "function": "xprop_parser",
       "output_key": "win_maximized"
     },
@@ -179,6 +190,27 @@ Here, the command `xprop -id <WinID>` will be launched. Then its output will be 
 A callback should return a dictionary of values. The result returned to the end-user will be the `output_key` of this dictionary.
 
 In this case, we just need to write one parser function for xprop, and then returns the relevant key in our various commands.
+
+### Custom Pythong command callbacks
+
+Instead of calling a command line tool, you can call a Python function:
+
+```
+{
+  "name": "x-move-win-name-screen",
+  "description": "Move a window specified by its name to a specific monitor",
+  "forwarded_arguments": [
+      { "name": "WinName", "description": "The substring to match the Window name"},
+      { "name": "Monitor", "description": "The index of the monitor"}
+  ],
+  "callback_command": "move_win_to_screen",
+  "versions_working": [("x11", "all")],
+  "versions_not_working": [],
+  "tags": ["x11", "windows", "wmctrl", "xrandr" ]
+},
+```
+
+Here, the function `move_win_to_screen` in the file `command_callbacks.py` will be executed.
 
 ### Saving temporarily the results of commands
 

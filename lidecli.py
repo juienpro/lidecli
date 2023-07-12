@@ -7,6 +7,7 @@ import json
 import os
 import configparser
 import parsing_callbacks
+import command_callbacks
 import db
 
 version = "1.0.2"
@@ -76,11 +77,21 @@ def exec_command(args):
             print(read_temporary_variable(int(args.index)))
         return
     command = get_command_by_name(args.command)
+    str_command = None
     if "command" in command:
         str_command = command["command"]
-    else:
+    elif "commands" in command:
         str_command = ' && '.join(command['commands'])
+        
+    # Callback command
+    if str_command == None:
+        function = getattr(command_callbacks, command["callback_command"])
+        ret = function(args)
+        # ret = ret.decode('utf-8')
+        print(ret, end='')
+        return
 
+        
     for option in command.get('forwarded_options', []):
         param = option['param'].replace('-', '')
         if getattr(args, param) == True:
@@ -116,6 +127,7 @@ def exec_command(args):
         function = getattr(parsing_callbacks, command["callback_parser"]["function"])
         ret = function(ret)
         ret = ret[command['callback_parser']['output_key']]
+        print(ret, end='')
         # print(ret["win_maximized"], end='')
     else:
         print(ret, end='')

@@ -303,6 +303,18 @@ def commands():
             "tags": ["x11", "windows", "wmctrl" ]
         },
         {
+            "name": "x-move-win-name-screen",
+            "description": "Move a window specified by its name to a specific monitor",
+            "forwarded_arguments": [
+                { "name": "WinName", "description": "The substring to match the Window name"},
+                { "name": "Monitor", "description": "The index of the monitor"}
+            ],
+            "callback_command": "move_win_to_screen",
+            "versions_working": [("x11", "all")],
+            "versions_not_working": [],
+            "tags": ["x11", "windows", "wmctrl", "xrandr" ]
+        },
+        {
             "name": "kde-toggle-win-fullscreen",
             "description": "Toogle fullscreen for the current Window",
             "command": "qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut 'Window Fullscreen'",
