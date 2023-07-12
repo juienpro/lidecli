@@ -1,7 +1,7 @@
 # Changelog
 All changes to the project will be documented in this file.
 
-## 1.0.2 - 2023.07.12
+## 1.0.3 - 2023.07.12
 
 ### Commands added
 

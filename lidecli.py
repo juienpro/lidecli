@@ -10,7 +10,7 @@ import parsing_callbacks
 import command_callbacks
 import db
 
-version = "1.0.2"
+version = "1.0.3"
 verbose = False
 outer_args = None
 inner_args = None

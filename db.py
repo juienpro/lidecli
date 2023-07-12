@@ -240,7 +240,7 @@ def commands():
         },
         {
            "name": "x-focus-name-nth",
-            "description": "Give focus to the bth Window (by name)",
+            "description": "Give focus to the nth Window (by name)",
             "forwarded_arguments": [
                 { "name": "WinName", "description": "The substring to match the Window Name"},
                 { "name": "Nth", "description": "The index of the window"}
